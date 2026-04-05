@@ -1,98 +1,42 @@
 body {
-    background: #f3f4f6;
-    font-family: Arial, sans-serif;
-    color: #222;
-    line-height: 1.6;
-    margin: 0;
-    padding: 2rem 1rem;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f6f8;
+  color: #111;
+}
+
+.container {
+  max-width: 800px;
+  margin: 100px auto;
+  text-align: center;
 }
 
 h1 {
-    color: #111;
-    font-size: 2.5rem;
-    font-weight: 400;
-    margin: 0 0 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-.page-card {
-    max-width: 720px;
-    margin: 0 auto;
-    background: #fff;
-    border-top: 6px solid #555;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-    padding: 2rem 2.5rem 2.5rem;
-}
-
-.eyebrow {
-    font-size: 1.25rem;
-    margin: 0 0 1.5rem;
-    color: #555;
-}
-
-.link-list {
-    margin: 1.5rem 0 0;
-    padding-left: 2rem;
-}
-
-.link-list li {
-    margin: 0.35rem 0;
-}
-
-a {
-    color: #174ea6;
-    text-decoration: none;
-}
-
-a:hover,
-a:focus {
-    text-decoration: underline;
-}
-.week-page {
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 3rem 1rem 4rem;
-}
-
-.week-page h2 {
-  font-size: 3rem;
-  margin: 1rem 0 2rem;
-  font-weight: 700;
-  color: #111;
-}
-
-.week-page h1 {
-  font-size: 3.2rem;
-  margin: 0 0 2.5rem;
-  font-weight: 700;
-  color: #111;
-}
-
-.week-page p {
+p {
   font-size: 1.2rem;
-  margin: 2.5rem 0;
-  color: #222;
+  margin-bottom: 30px;
 }
 
-.artifact-button {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border-radius: 14px;
-  background: #dfe7f5;
-  color: #1a43ff;
-  font-weight: 700;
-  font-size: 1.1rem;
+.links {
+  list-style: none;
+  padding: 0;
+}
+
+.links li {
+  margin: 10px 0;
+}
+
+.links a {
   text-decoration: none;
+  font-size: 1.2rem;
+  color: #2563eb;
+  font-weight: 600;
 }
 
-.artifact-button:hover,
-.artifact-button:focus {
-  text-decoration: none;
-  opacity: 0.95;
-}
-
-.actions-link {
-  font-size: 0.95rem;
-  color: #444;
-  word-break: break-word;
+.links a:hover {
+  text-decoration: underline;
 }
