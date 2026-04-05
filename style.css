@@ -13,32 +13,10 @@ body {
 
 h1 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
 }
 
-p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-}
-
-.links {
-  list-style: none;
-  padding: 0;
-}
-
-.links li {
-  margin: 10px 0;
-}
-
-.links a {
-  text-decoration: none;
-  font-size: 1.2rem;
-  color: #2563eb;
-  font-weight: 600;
-}
-
-.links a:hover {
-  text-decoration: underline;
+h2 {
+  font-size: 2rem;
 }
 
 .button {
