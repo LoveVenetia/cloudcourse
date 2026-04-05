@@ -47,3 +47,52 @@ a:hover,
 a:focus {
     text-decoration: underline;
 }
+.week-page {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 3rem 1rem 4rem;
+}
+
+.week-page h2 {
+  font-size: 3rem;
+  margin: 1rem 0 2rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.week-page h1 {
+  font-size: 3.2rem;
+  margin: 0 0 2.5rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.week-page p {
+  font-size: 1.2rem;
+  margin: 2.5rem 0;
+  color: #222;
+}
+
+.artifact-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  background: #dfe7f5;
+  color: #1a43ff;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.artifact-button:hover,
+.artifact-button:focus {
+  text-decoration: none;
+  opacity: 0.95;
+}
+
+.actions-link {
+  font-size: 0.95rem;
+  color: #444;
+  word-break: break-word;
+}
