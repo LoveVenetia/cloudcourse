@@ -100,7 +100,7 @@ function App() {
         {!user ? (
           <>
             <p className="eyebrow">Week 4: Firebase kirjautuminen</p>
-            <h1>Kirjaudu sisaan</h1>
+            <h1>Kirjaudu sisään</h1>
             <p className="helper">Kirjaudu Firebase-tunnuksillasi päästäksesi koodinimisivulle.</p>
 
             <LoginForm />
