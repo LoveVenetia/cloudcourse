@@ -14,9 +14,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: 'reactweek5/package-lock.json'
       
       - name: Install dependencies (reactweek5)
-        run: cd reactweek5 && npm install
+        run: cd reactweek5 && npm ci
       
       - name: Build project
         run: cd reactweek5 && npm run build
