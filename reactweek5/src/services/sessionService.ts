@@ -113,12 +113,9 @@ export async function startRound(sessionId: string): Promise<void> {
   // Fetch random product
   const product = await fetchRandomProduct();
 
-  // Reset all guesses
+  // Reset all guesses (strip undefined keys — Firestore rejects them)
   const session = (await getDoc(sessionRef)).data() as Session;
-  const playersWithoutGuess = session.players.map((p) => ({
-    ...p,
-    guess: undefined,
-  }));
+  const playersWithoutGuess = session.players.map(({ guess, difference, ...rest }) => rest);
 
   await updateDoc(sessionRef, {
     status: "guessing",
@@ -167,12 +164,11 @@ export async function endRound(sessionId: string): Promise<void> {
 
   const correctPrice = session.currentProduct.price;
 
-  // Calculate who won this round and differences
-  const playersWithDiff = session.players.map((p) => ({
-    ...p,
-    difference:
-      p.guess !== undefined ? Math.abs(p.guess - correctPrice) : undefined,
-  }));
+  // Calculate differences (omit key entirely when no guess — Firestore rejects undefined)
+  const playersWithDiff = session.players.map((p) => {
+    if (p.guess === undefined) return p;
+    return { ...p, difference: Math.abs(p.guess - correctPrice) };
+  });
 
   // Find closest guess(es)
   let minDifference = Infinity;
@@ -206,12 +202,8 @@ export async function nextRound(sessionId: string): Promise<void> {
   const sessionRef = doc(db, "sessions", sessionId);
   const session = (await getDoc(sessionRef)).data() as Session;
 
-  // Reset for next round
-  const resetPlayers = session.players.map((p) => ({
-    ...p,
-    guess: undefined,
-    difference: undefined,
-  }));
+  // Reset for next round (strip undefined keys — Firestore rejects them)
+  const resetPlayers = session.players.map(({ guess, difference, ...rest }) => rest);
 
   // Fetch new product
   const product = await fetchRandomProduct();
