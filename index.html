@@ -5,6 +5,15 @@
   <title>Sakun GitHub Pages</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script>
+    if (localStorage.getItem('consent') === 'true') {
+      var s = document.createElement('script');
+      s.defer = true;
+      s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+      s.setAttribute('data-cf-beacon', '{"token": "468a4db5e3104833afb402c1197e8806"}');
+      document.head.appendChild(s);
+    }
+  </script>
 </head>
 <body>
   <main class="site-shell">

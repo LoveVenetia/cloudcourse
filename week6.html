@@ -1,16 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="fi">
 <head>
     <meta charset="utf-8">
-    <title>Viikko 6</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Viikko 6 - Cloudflare Web Analytics</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      if (localStorage.getItem('consent') === 'true') {
+        var s = document.createElement('script');
+        s.defer = true;
+        s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+        s.setAttribute('data-cf-beacon', '{"token": "468a4db5e3104833afb402c1197e8806"}');
+        document.head.appendChild(s);
+      }
+    </script>
 </head>
 <body>
-    <main class="page-card">
-        <p class="eyebrow">Jekyll:iä käyttävä sivusto</p>
-        <h1>Viikko 6</h1>
-        <p>Tämä on viikon 6 tehtäväsivu.</p>
-        <p><a href="index.html">Takaisin etusivulle</a></p>
+    <main class="site-shell">
+        <section class="hero">
+            <p class="eyebrow">Viikko 6</p>
+            <h1>Cloudflare Web Analytics</h1>
+            <p class="lead">Lyhyt pohdinta seurannan käytöstä ja CORS-ongelmien välttämisestä.</p>
+        </section>
+
+        <section class="card">
+            <h2>Mihin seurantaa voisi hyödyntää?</h2>
+            <p>
+                Cloudflare Web Analytics tarjoaa anonyymin tavan kerätä tietoa
+                sivuston käytöstä ilman evästeitä tai henkilötietoja. Kerätyn datan
+                avulla voi seurata sivulatauksia, kävijämääriä, suosituimpia sivuja
+                sekä kävijöiden maantieteellistä jakautumista. Tätä tietoa voi
+                hyödyntää sivuston teknisen toimivuuden valvonnassa: nähdään esimerkiksi
+                onko jokin sivu hidas tai tuottaako se virheitä. Käyttäjäpolkujen
+                analysointi paljastaa, mitkä sisällöt herättävät kiinnostusta ja
+                mistä kävijät poistuvat. Kurssityössä tämä auttaa ymmärtämään,
+                ovatko viikkotehtävät saavutettavissa ja löytyvätkö linkit etusivulta.
+                Lisäksi mukautetuilla tapahtumilla (trackEvent) voi seurata
+                yksittäisten toimintojen, kuten kirjautumisen tai pelin aloittamisen,
+                onnistumista. Koska data on anonyymia, GDPR-vaatimukset täyttyvät
+                helpommin, mutta käyttäjältä kysytään silti suostumus
+                ConsentBanner-komponentilla.
+            </p>
+
+            <h2>CORS-ongelman välttäminen</h2>
+            <p>
+                CORS-virhe syntyy, kun selain estää eri verkkotunnukselta haetun
+                resurssin käytön. Sen voi välttää tarjoamalla rajapinnasta oikeat
+                <code>Access-Control-Allow-Origin</code>-otsakkeet, käyttämällä
+                samaa verkkotunnusta sekä etu- että taustapäälle (esim. Cloudflare
+                Pages + Workers), tai kierrättämällä pyynnöt oman taustapalvelimen
+                kautta proxyna. Cloudflare Web Analyticsin beacon ei aiheuta
+                CORS-ongelmaa, koska se lähettää tiedot yksisuuntaisena
+                kuva-/POST-pyyntönä eikä lue vastausta JavaScriptillä.
+            </p>
+
+            <p><a href="index.html">← Takaisin etusivulle</a></p>
+        </section>
     </main>
 </body>
 </html>

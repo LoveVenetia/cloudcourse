@@ -9,5 +9,16 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <!-- Cloudflare Web Analytics -->
+    <script>
+      if (localStorage.getItem('consent') === 'true') {
+        var s = document.createElement('script');
+        s.defer = true;
+        s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+        s.setAttribute('data-cf-beacon', '{"token": "468a4db5e3104833afb402c1197e8806"}');
+        document.head.appendChild(s);
+      }
+    </script>
+    <!-- End Cloudflare Web Analytics -->
   </body>
 </html>
