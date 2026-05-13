@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Helsinki Live – tapahtumahaku ja suosikit Helsingin seudulla">
+  <title>Helsinki Live</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Siirry sisältöön</a>
+
+  <header class="topbar" role="banner">
+    <div class="topbar__inner">
+      <a class="brand" href="./">
+        <span class="brand__dot" aria-hidden="true"></span>
+        Helsinki Live
+      </a>
+      <nav class="topbar__nav" aria-label="Päänavigaatio">
+        <button id="nav-events" class="navbtn navbtn--active" type="button" aria-current="page">Tapahtumat</button>
+        <button id="nav-favorites" class="navbtn" type="button">Suosikit</button>
+      </nav>
+      <div class="topbar__auth" id="auth-area">
+        <span class="auth-status" id="auth-status" aria-live="polite">Ei kirjautunut</span>
+        <button id="open-login" class="btn btn--ghost" type="button">Kirjaudu</button>
+        <button id="logout" class="btn btn--ghost" type="button" hidden>Kirjaudu ulos</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main">
+    <section class="hero" aria-label="Sivuston esittely">
+      <p class="eyebrow">Linkedevents-rajapinta</p>
+      <h1>Helsingin tapahtumat yhdessä paikassa</h1>
+      <p class="lead">Hae tapahtumia, tallenna suosikit ja löydä uutta tekemistä Helsingin seudulla.</p>
+    </section>
+
+    <section class="controls" aria-label="Hakuvalinnat">
+      <label class="search">
+        <span class="visually-hidden">Hae tapahtumia</span>
+        <input
+          id="search-input"
+          type="search"
+          placeholder="Hae tapahtumia (esim. konsertti, museo)..."
+          autocomplete="off"
+        >
+      </label>
+    </section>
+
+    <section id="events-view" class="view" aria-label="Tapahtumalista">
+      <div id="events-status" class="status" role="status" aria-live="polite">Ladataan tapahtumia…</div>
+      <ul id="events-list" class="event-list"></ul>
+      <div class="load-more-wrap">
+        <button id="load-more" class="btn btn--primary" type="button" hidden>Lataa lisää</button>
+      </div>
+    </section>
+
+    <section id="favorites-view" class="view" aria-label="Omat suosikit" hidden>
+      <h2>Omat suosikit</h2>
+      <div id="favorites-status" class="status" role="status" aria-live="polite"></div>
+      <ul id="favorites-list" class="event-list"></ul>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <p>Tapahtumadata: <a href="https://api.hel.fi/linkedevents/v1/" target="_blank" rel="noopener noreferrer">Helsinki Linkedevents API</a></p>
+  </footer>
+
+  <!-- Login dialog -->
+  <dialog id="login-dialog" class="dialog" aria-labelledby="login-title">
+    <form id="login-form" method="dialog" class="dialog__form">
+      <h2 id="login-title">Kirjaudu sisään</h2>
+      <p id="login-error" class="form-error" role="alert" hidden></p>
+
+      <label class="field">
+        <span>Sähköposti</span>
+        <input id="login-email" type="email" autocomplete="email" required>
+      </label>
+
+      <label class="field">
+        <span>Salasana</span>
+        <input id="login-password" type="password" autocomplete="current-password" minlength="6" required>
+      </label>
+
+      <div class="dialog__actions">
+        <button type="button" id="login-cancel" class="btn btn--ghost">Peruuta</button>
+        <button type="button" id="signup-submit" class="btn btn--ghost">Luo tili</button>
+        <button type="submit" id="login-submit" class="btn btn--primary">Kirjaudu</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
