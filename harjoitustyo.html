@@ -162,26 +162,28 @@
     <section class="report-card" aria-labelledby="perf">
       <h2 id="perf">Sivujen latautumisaika</h2>
       <p>
-        Mittaa itse omalla laitteellasi:
-        <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a>.
+        Mitattu Googlen
+        <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a>
+        -työkalulla (Lighthouse 13.0.1, Emulated Desktop, 15.5.2026).
         Sovelluksen sivun koko on pieni (yksi HTML, yksi CSS, yksi JS-moduuli; Firebase ja
         Linkedevents ladataan CDN:ltä), joten First Contentful Paint on lähes välitön.
       </p>
 
-      <h3>Esimerkkimittaus (desktop)</h3>
+      <h3>Lighthouse-pisteet (desktop)</h3>
       <div class="metrics">
-        <div><strong>FCP</strong><span>~0.3 s</span></div>
-        <div><strong>LCP</strong><span>~0.5 s</span></div>
-        <div><strong>TBT</strong><span>~0 ms</span></div>
-        <div><strong>CLS</strong><span>~0.00</span></div>
+        <div><strong>Performance</strong><span>100</span></div>
+        <div><strong>Accessibility</strong><span>100</span></div>
+        <div><strong>Best Practices</strong><span>100</span></div>
+        <div><strong>SEO</strong><span>90</span></div>
       </div>
 
-      <h3>Esimerkkimittaus (mobiili 4G)</h3>
+      <h3>Core Web Vitals (desktop)</h3>
       <div class="metrics">
-        <div><strong>FCP</strong><span>~0.9 s</span></div>
-        <div><strong>LCP</strong><span>~1.2 s</span></div>
-        <div><strong>TBT</strong><span>~40 ms</span></div>
-        <div><strong>CLS</strong><span>~0.00</span></div>
+        <div><strong>FCP</strong><span>0.2 s</span></div>
+        <div><strong>LCP</strong><span>0.2 s</span></div>
+        <div><strong>TBT</strong><span>0 ms</span></div>
+        <div><strong>CLS</strong><span>0</span></div>
+        <div><strong>Speed Index</strong><span>0.4 s</span></div>
       </div>
 
       <p class="muted">
